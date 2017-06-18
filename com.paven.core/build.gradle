@@ -1,0 +1,27 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
+}
+
+description = 'core'
+apply plugin: 'application'
+
+
+// In this section you declare the dependencies for your production and test code
+dependencies {
+    compile ('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: "spring-boot-starter-tomcat"
+    }
+    compile 'org.springframework.boot:spring-boot-starter-jetty'
+    compile 'org.springframework.boot:spring-boot-starter-actuator'
+    compile project(":com.paven.db")
+    compile project(":com.paven.model")
+    // Declare the dependency for your favourite test framework you want to use in your tests.
+    // TestNG is also supported by the Gradle Test task. Just change the
+    // testCompile dependency to testCompile 'org.testng:testng:6.8.1' and add
+    // 'test.useTestNG()' to your build script.
+    testCompile 'org.springframework.boot:spring-boot-starter-test'
+}
+
+run {
+    main = 'com.edgecore.Application'
+}

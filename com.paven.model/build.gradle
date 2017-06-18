@@ -1,0 +1,9 @@
+plugins {
+    id 'org.springframework.boot' version '1.5.4.RELEASE'
+}
+
+description = 'model'
+
+dependencies {
+    compile 'org.springframework.boot:spring-boot-starter-data-jpa'
+}
