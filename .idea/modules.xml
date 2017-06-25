@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/Paven.iml" filepath="$PROJECT_DIR$/.idea/modules/Paven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.core/com.paven.core.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.core/com.paven.core.iml" group="com.paven.core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.core/com.paven.core_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.core/com.paven.core_main.iml" group="com.paven.core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.core/com.paven.core_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.core/com.paven.core_test.iml" group="com.paven.core" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.db/com.paven.db.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.db/com.paven.db.iml" group="com.paven.db" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.db/com.paven.db_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.db/com.paven.db_main.iml" group="com.paven.db" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.db/com.paven.db_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.db/com.paven.db_test.iml" group="com.paven.db" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.model/com.paven.model.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.model/com.paven.model.iml" group="com.paven.model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.model/com.paven.model_main.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.model/com.paven.model_main.iml" group="com.paven.model" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/com.paven.model/com.paven.model_test.iml" filepath="$PROJECT_DIR$/.idea/modules/com.paven.model/com.paven.model_test.iml" group="com.paven.model" />
+    </modules>
+  </component>
+</project>
