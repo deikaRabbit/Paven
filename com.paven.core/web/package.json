@@ -1,11 +1,13 @@
 {
   "name": "web",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "license": "MIT",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --prod",
+    "buildDev": "ng build",
+    "buildWatch": "ng build --watch=true",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"

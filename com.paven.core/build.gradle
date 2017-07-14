@@ -31,5 +31,33 @@ dependencies {
 }
 
 run {
-    main = 'com.edgecore.Application'
+    main = 'com.paven.Application'
 }
+
+task buildClientDev(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'build'
+    description = 'Compile client side assets for development'
+    args = ['run', 'buildDev']
+}
+
+task buildClient(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'build'
+    description = 'Compile client side assets for production'
+    args = ['run', 'build']
+}
+
+task buildWatch(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'application'
+    description = 'Builds and watches the client side assets for rebuilding'
+    args = ['run', 'buildWatch']
+}
+
+task clientTest(type: NpmTask, dependsOn: 'npmInstall') {
+    group = 'verification'
+    description = 'Executes client side unit tests'
+    args = ['run', 'test']
+}
+
+bootRun.dependsOn(buildClientDev)
+
+jar.dependsOn(buildClient)

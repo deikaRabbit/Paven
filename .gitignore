@@ -29,3 +29,4 @@ gradlew.bat
 #intellij
 .idea/
 *.iml
+com.paven.core/src/main/resources/static/
