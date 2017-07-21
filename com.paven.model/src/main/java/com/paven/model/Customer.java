@@ -31,7 +31,7 @@ public class Customer implements Serializable{
     @Column(length=200)
     private String address;
 
-    private Customer() {
+    public Customer() {
     }
 
 

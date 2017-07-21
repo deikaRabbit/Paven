@@ -3,6 +3,6 @@ create table customer (
     name varchar(32),
     sex smallint,
     tel varchar(16),
-    address varchar(200),
-    primary key (id)
+    address varchar(200)
+    Constraint 'customer_pk' primary key (id)
 );
