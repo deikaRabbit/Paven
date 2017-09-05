@@ -16,10 +16,18 @@ public class Pet implements Serializable {
 
     private Short sex;
 
+    private Short category;
+
+    private Short type;
+
     @Column(length=32)
     private String name;
 
-    private Integer bloodType;
+    private Short bloodType;
+
+    @ManyToOne(targetEntity = Customer.class)
+    @JoinColumn(name = "master_id")
+    private Customer master;
 
     public Pet() {
     }
@@ -48,11 +56,19 @@ public class Pet implements Serializable {
         this.name = name;
     }
 
-    public Integer getBloodType() {
+    public Short getBloodType() {
         return bloodType;
     }
 
-    public void setBloodType(Integer bloodType) {
+    public void setBloodType(Short bloodType) {
         this.bloodType = bloodType;
+    }
+
+    public Customer getMaster() {
+        return master;
+    }
+
+    public void setMaster(Customer master) {
+        this.master = master;
     }
 }

@@ -28,7 +28,7 @@ public class CustomerRepositoryTest {
         Customer c1 = new Customer();
         c1.setName("test");
         c1.setSex((short) 1);
-        c1.setTel("0912222111");
+        c1.setHome_tel("0912222111");
         c1.setAddress("bbba");
 
         customerRespo.save(c1);
