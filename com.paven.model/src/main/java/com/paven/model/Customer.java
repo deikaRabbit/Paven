@@ -2,6 +2,7 @@ package com.paven.model;
 
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 import java.util.ArrayList;
@@ -14,7 +15,7 @@ import java.util.List;
 @Table(name = "customer")
 public class Customer extends Person {
 
-    @OneToMany(mappedBy = "master", targetEntity = Pet.class)
+    @OneToMany(mappedBy = "master", targetEntity = Pet.class, fetch = FetchType.EAGER)
     private List<Pet> pets;
 
     public Customer() {
