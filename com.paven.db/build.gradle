@@ -16,3 +16,7 @@ dependencies {
     testCompile group: 'com.h2database', name: 'h2', version: '1.4.196'
     testCompile group: 'org.flywaydb.flyway-test-extensions', name: 'flyway-spring4-test', version: '4.1.0'
 }
+
+bootRepackage {
+    enabled = false
+}
