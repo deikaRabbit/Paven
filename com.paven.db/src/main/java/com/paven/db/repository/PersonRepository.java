@@ -11,4 +11,6 @@ import javax.transaction.Transactional;
  */
 @Transactional
 public interface PersonRepository extends CrudRepository<Person, Long> {
+
+    public Person findByUsername(String name);
 }
