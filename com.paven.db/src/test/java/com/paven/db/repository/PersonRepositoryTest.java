@@ -1,12 +1,10 @@
 package com.paven.db.repository;
 
-import com.paven.model.Customer;
+import com.paven.model.Person;
 import com.paven.model.Pet;
-import org.hibernate.Hibernate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
@@ -20,17 +18,17 @@ import static org.junit.Assert.assertNotNull;
  */
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class CustomerRepositoryTest {
+public class PersonRepositoryTest {
 
     @Autowired
-    private CustomerRepository customerRespo;
+    private PersonRepository customerRespo;
 
     @Autowired
     private PetRepository petRespo;
 
     @Test
     public void basicTest(){
-        Customer c1 = new Customer();
+        Person c1 = new Person();
         c1.setName("test");
         c1.setSex((short) 1);
         c1.setHome_tel("0912222111");
@@ -52,7 +50,7 @@ public class CustomerRepositoryTest {
         Pet tempPet = petRespo.findOne(pet.getId());
         assertNotNull(tempPet.getMaster());
 
-        Customer fetchC1 = customerRespo.findOne(c1.getId());
+        Person fetchC1 = customerRespo.findOne(c1.getId());
         assertNotNull(fetchC1);
 
         assertEquals(c1.getId(), tempPet.getMaster().getId());
@@ -63,8 +61,8 @@ public class CustomerRepositoryTest {
         customerRespo.save(fetchC1);
         assertEquals(1, customerRespo.count());
 
-        Customer fetchC2 = customerRespo.findOne(c1.getId());
-        assertEquals(fetchC1.getName(), fetchC2.getName());
+        Person fetchC2 = customerRespo.findOne(c1.getId());
+        assertEquals(fetchC1.getUsername(), fetchC2.getUsername());
 
         customerRespo.delete(c1.getId());
         assertEquals(0, customerRespo.count());

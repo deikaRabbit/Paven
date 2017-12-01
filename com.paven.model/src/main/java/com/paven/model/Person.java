@@ -1,13 +1,21 @@
 package com.paven.model;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
 
 /**
  * Created by deika on 2017/9/5.
  */
-@MappedSuperclass
-public class Person implements Serializable {
+@Entity
+@Table(name = "person")
+public class Person implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,6 +23,9 @@ public class Person implements Serializable {
 
     @Column(length=32)
     private String name;
+
+    @Column(length=64)
+    private String password;
 
     @Column(length=16)
     private String home_tel;
@@ -27,8 +38,19 @@ public class Person implements Serializable {
     @Column(length=200)
     private String address;
 
-    @Deprecated
-    public Person(){
+    private Short privilege;
+
+    @OneToMany(mappedBy = "master", targetEntity = Pet.class, fetch = FetchType.EAGER)
+    private List<Pet> pets;
+
+    public Person() {
+        this.privilege = 0;
+    }
+
+    public Person(String name, String password){
+        this();
+        this.name = name;
+        this.password = password;
     }
 
     public Long getId() {
@@ -37,10 +59,6 @@ public class Person implements Serializable {
 
     public void setId(Long id) {
         this.id = id;
-    }
-
-    public String getName() {
-        return name;
     }
 
     public void setName(String name) {
@@ -77,5 +95,64 @@ public class Person implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
+    }
+
+    public Short getPrivilege() {
+        return privilege;
+    }
+
+    public void setPrivilege(Short privilege) {
+        this.privilege = privilege;
+    }
+
+    public List<Pet> getPets() {
+        return pets;
+    }
+
+    public void setPets(List<Pet> pets) {
+        this.pets = pets;
+    }
+
+    public void addPet(Pet pet){
+        if(this.pets == null)
+            this.pets = new ArrayList<Pet>();
+        this.pets.add(pet);
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<GrantedAuthority> auths = new ArrayList<GrantedAuthority>();
+        auths.add(new SimpleGrantedAuthority(getPrivilege().toString()));
+        return auths;
+    }
+
+    @Override
+    public String getPassword() {
+        return password;
+    }
+
+    @Override
+    public String getUsername() {
+        return name;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }

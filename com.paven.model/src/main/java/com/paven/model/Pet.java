@@ -25,9 +25,9 @@ public class Pet implements Serializable {
 
     private Short bloodType;
 
-    @ManyToOne(targetEntity = Customer.class)
+    @ManyToOne(targetEntity = Person.class)
     @JoinColumn(name = "master_id")
-    private Customer master;
+    private Person master;
 
     public Pet() {
     }
@@ -64,11 +64,11 @@ public class Pet implements Serializable {
         this.bloodType = bloodType;
     }
 
-    public Customer getMaster() {
+    public Person getMaster() {
         return master;
     }
 
-    public void setMaster(Customer master) {
+    public void setMaster(Person master) {
         this.master = master;
     }
 }

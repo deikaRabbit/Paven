@@ -1,6 +1,6 @@
 package com.paven.db.repository;
 
-import com.paven.model.Customer;
+import com.paven.model.Person;
 import org.springframework.data.repository.CrudRepository;
 
 import javax.transaction.Transactional;
@@ -10,5 +10,5 @@ import javax.transaction.Transactional;
  * Created by deika on 2017/6/18.
  */
 @Transactional
-public interface CustomerRepository extends CrudRepository<Customer, Long> {
+public interface PersonRepository extends CrudRepository<Person, Long> {
 }
