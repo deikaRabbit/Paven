@@ -8,8 +8,6 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Component;
 
-import com.edgecore.db.repository.system.UserDAO;
-import com.edgecore.model.system.User;
 
 @Component
 public class LoginService implements UserDetailsService {
