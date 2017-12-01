@@ -17,7 +17,7 @@ public class LoginService implements UserDetailsService {
 
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-		Person user = personDao.findByUsername(username);
+		Person user = personDao.findByName(username);
 		if (user == null)
 			throw new UsernameNotFoundException("User not exist:" + username);
 		return user;
