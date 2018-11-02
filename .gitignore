@@ -31,3 +31,6 @@ gradlew.bat
 *.iml
 com.paven.core/src/main/resources/static/
 out/
+
+#MAC file
+.DS_Store
